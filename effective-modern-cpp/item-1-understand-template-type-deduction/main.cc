@@ -150,6 +150,24 @@ void case3(){
     func_param_type_by_const_value(y2);   // T is const int* const
 }
 
+void case_array_arguments(){
+    std::cout << "Case Array Arguments." << std::endl;
+
+    const char name[] = "J. P. Briggs";
+    func_param_type_by_value(name); // T is const char*
+    func_param_type_pointer(name);  // T is const char, T* is const char*
+    func_param_type_reference(name);// T is const char [13], T& is const char(&)[13]
+}
+
+void some_func(int, double){}
+void case_function_arguments(){
+    std::cout << "Case Function Arguments." << std::endl;
+
+    func_param_type_by_value(some_func);    // T is void(*)(int, double)
+    func_param_type_pointer(some_func);     // T is void(int, double), T* is void(*)(int, double)
+    func_param_type_reference(some_func);   // T is void(int, double), T& is void(&)(int, double)
+}
+
 int main() {
 
     case1();
@@ -159,6 +177,12 @@ int main() {
     std::cout << std::endl;
 
     case3();
+    std::cout << std::endl;
+
+    case_array_arguments();
+    std::cout << std::endl;
+
+    case_function_arguments();
     std::cout << std::endl;
 
     return 0;
