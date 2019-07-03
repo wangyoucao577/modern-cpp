@@ -1,4 +1,4 @@
-# Item 1. Understand auto type deductions    
+# Item 2. Understand auto type deductions    
 
 ## Test Codes
 
