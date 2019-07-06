@@ -1,8 +1,6 @@
 
 #include "complex_sample.hpp"
 
-#include <iostream>
-
 class Widget{
     int value_ {0};
 };
