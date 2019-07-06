@@ -83,3 +83,6 @@ decltype(auto) func2(){
 
 
 ```
+
+## References
+- [(Chinese) auto vs. decltype](https://github.com/wangyoucao577/modern-cpp/tree/master/understanding-cpp11#auto_decltype)    

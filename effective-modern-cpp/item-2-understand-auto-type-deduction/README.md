@@ -52,3 +52,6 @@ The only real difference between `auto` and `template` type deduction is that `a
 
 - `C++14` permits `auto` to indicate that a function's return type should be deduced, and `C++14` lambdas may use `auto` in parameter declarations.    
 - However, these uses of `auto` employ `template` type deduction, not `auto` type deduction.    
+
+## References
+- [(Chinese) auto vs. decltype](https://github.com/wangyoucao577/modern-cpp/tree/master/understanding-cpp11#auto_decltype)    
