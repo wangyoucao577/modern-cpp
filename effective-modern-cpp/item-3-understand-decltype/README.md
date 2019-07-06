@@ -41,13 +41,20 @@ decltype(auto) func(Container& c, Index i) {
     return c[i];
 }
 
+
+// Final C++14 version after refinement, FYI.
+template<typename Container, typename Index>
+decltype(auto) func(Container&& c, Index i) {
+    return std::forward<Container>(c)[i];
+}
+
 ```
 
 - `decltype(auto)` in `C++14`:     
   - `auto` specifies that the type is to be deduced    
   - `decltype` says that `decltype` rules should be used during the deduction.     
 
-- special case of `decltype`:    
+- Special case of `decltype`:    
   - When applying `decltype` to `lvalue expressions`, the type reported is an `lvalue reference`.    
     - That is, if an `lvalue expression` has type `T`, `decltype` reports that type as `T&`.    
   - The primary lesson is to pay very close attention when using `decltype(auto)`.    
