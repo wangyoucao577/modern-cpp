@@ -4,5 +4,5 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 ## Items 
 - [Item 1. Understand template type deduction](./item-1-understand-template-type-deduction/)    
 - [Item 2. Understand auto type deduction](./item-2-understand-auto-type-deduction/)    
-
+- [Item 3. Understand decltype](./item-3-understand-decltype/)
 
