@@ -1,10 +1,5 @@
 
-#include <iostream>
-
-// declaration only for TD, 
-// TD == "Type Displayer"
-template<typename T>
-class TD;
+#include "compiler_diagnostics.hpp"
 
 int main() {
 
