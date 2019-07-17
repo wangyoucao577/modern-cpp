@@ -8,3 +8,5 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 4. Know how to view deduced types](./item-4-know-how-to-view-deduced-types/)
 
 ## Chapter 2. auto    
+- [Item 5. Prefer auto to explicit type declarations](./item-5-prefer-auto-to-explicit-type-declarations/)
+
