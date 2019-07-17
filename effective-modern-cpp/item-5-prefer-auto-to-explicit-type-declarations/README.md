@@ -19,7 +19,7 @@ $ # TODO:
       - The size may not be adequate for the closure it's asked to store, and when that's the case, the `std::function` constructor will allocate heap memory to store the closure. 
       - The result is that the `std::function` object typically uses more memory than the `auto`-declared object.   
     - Thanks to implementation details that restrict inlining and yield indirect function calls, invoking a closure via a `std::function` object is almost certain to be slower than calling it via an `auto`-declared object. 
-  - In another words, the `std::function` approach is generally bigger and slower than the `auto` approach, and it may yield out of memory exceptions, too.  
+  - In another words, the `std::function` approach is generally **bigger and slower** than the `auto` approach, and it may yield out of memory exceptions, too.  
 
 - The advantages of `auto` 
   - avoidance of uninitialized variables
