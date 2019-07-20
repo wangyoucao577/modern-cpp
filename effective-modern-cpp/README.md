@@ -9,4 +9,6 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 
 ## Chapter 2. auto    
 - [Item 5. Prefer auto to explicit type declarations](./item-5-prefer-auto-to-explicit-type-declarations/)
+- [Item 6. Use the explicity typed initializer idiom when auto deduces undesired types](./item-6-use-the-explicitly-typed-initializer-idiom-when-auto-deduces-undesired-types/)
 
+## Chapter 3. Moving to Modern C++
