@@ -68,4 +68,5 @@ See discussion in [Is it better in C++ to pass by value or pass by constant refe
 - [Can std::function be move-constructed from rvalue reference to a temporary functor object?](https://stackoverflow.com/questions/16639131/can-stdfunction-be-move-constructed-from-rvalue-reference-to-a-temporary-funct)
 - [How true is “Want Speed? Pass by value”](https://stackoverflow.com/questions/21605579/how-true-is-want-speed-pass-by-value)
 - [Should I pass an std::function by const-reference?](https://stackoverflow.com/questions/18365532/should-i-pass-an-stdfunction-by-const-reference)
+- [What is the correct way of using C++11's range-based for?](https://stackoverflow.com/questions/15927033/what-is-the-correct-way-of-using-c11s-range-based-for)
 
