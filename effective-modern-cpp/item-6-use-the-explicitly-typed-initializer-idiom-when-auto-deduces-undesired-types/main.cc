@@ -6,23 +6,16 @@
 #include <boost/type_index.hpp>
 #endif
 
-std::vector<bool> get_features(){
-    std::vector<bool> b;
-    b.push_back(true);
-    b.push_back(false);
-    b.push_back(true);
-    return b;
-}
-
 int main() {
 
     /* std::vector<bool> is a possibly space-efficient specialization of std::vector for the type bool.
     * Exposes class std::vector<bool>::reference as a method of accessing individual bits. In particular, objects of this class are returned by operator[] by value.
     */ 
+    std::vector<bool> b = {true, false, true};
 
-    bool explicitly_b1 = get_features()[1];
-    auto auto_b1 = get_features()[1];
-    auto forced_auto_b1 = static_cast<bool>(get_features()[1]);
+    bool explicitly_b1 = b[1];
+    auto auto_b1 = b[1];
+    auto forced_auto_b1 = static_cast<bool>(b[1]);
 
 #if defined(BOOST_SUPPORT)
     std::cout << "-- reports by boost::type_index:" << std::endl;
