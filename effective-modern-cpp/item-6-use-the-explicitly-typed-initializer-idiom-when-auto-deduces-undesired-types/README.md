@@ -3,7 +3,11 @@
 ## Test Codes
 
 ```bash
-$ # TODO: 
+$ g++ -std=c++14 -DBOOST_SUPPORT main.cc && ./a.out 
+-- reports by boost::type_index:
+boost::typeindex::type_id_with_cvr<decltype(explicitly_b1)>().pretty_name(): bool
+boost::typeindex::type_id_with_cvr<decltype(auto_b1)>().pretty_name(): std::__1::__bit_reference<std::__1::vector<bool, std::__1::allocator<bool> >, true>
+boost::typeindex::type_id_with_cvr<decltype(forced_auto_b1)>().pretty_name(): bool
 ```
 
 ## Notes 
@@ -62,5 +66,6 @@ $ # TODO:
 
 ## References
 - [What is the correct way of using C++11's range-based for?](https://stackoverflow.com/questions/15927033/what-is-the-correct-way-of-using-c11s-range-based-for)
+- [std::vector<bool>](https://en.cppreference.com/w/cpp/container/vector_bool)
 - [std::vector<bool>::reference](https://en.cppreference.com/w/cpp/container/vector_bool/reference)
 
