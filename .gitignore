@@ -33,3 +33,9 @@
 
 # Project Files
 *.vscode
+
+
+# MacOSX Files
+*.DS_Store
+*/*.DS_Store
+*/*/*.DS_Store
