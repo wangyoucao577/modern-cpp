@@ -11,7 +11,9 @@ My learning notes and practice codes for Modern `C++`(i.e. `C++11/14/17/20/...`)
 
 ## Misc. Topics
 - [rvalue references and move semantics](./misc/rvalue-references-and-move-semantics/)
+- [Understanding Lvalues and Rvalues](./misc/core-cpp-2019-understanding-lvalues-and-rvalues/)
 
 ## References
 - [Bjarne Stroustrup's homepage](http://www.stroustrup.com)
 - [cprogramming.com](https://www.cprogramming.com/)
+- [Core C++ 2019 :: Dan Saks :: Understanding Lvalues and Rvalues](https://www.youtube.com/watch?v=mK0r21-djk8)    
