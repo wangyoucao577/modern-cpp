@@ -16,4 +16,5 @@ My learning notes and practice codes for Modern `C++`(i.e. `C++11/14/17/20/...`)
 ## References
 - [Bjarne Stroustrup's homepage](http://www.stroustrup.com)
 - [cprogramming.com](https://www.cprogramming.com/)
+- [Scott Meyers's homepage](https://www.aristeia.com/)
 - [Core C++ 2019 :: Dan Saks :: Understanding Lvalues and Rvalues](https://www.youtube.com/watch?v=mK0r21-djk8)    

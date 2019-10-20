@@ -12,3 +12,9 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 6. Use the explicity typed initializer idiom when auto deduces undesired types](./item-6-use-the-explicitly-typed-initializer-idiom-when-auto-deduces-undesired-types/)
 
 ## Chapter 3. Moving to Modern C++
+
+
+## References
+- [Scott Meyers's homepage](https://www.aristeia.com/)
+- [Videos: Scott Meyers - Effective Modern C++](https://www.youtube.com/watch?v=fhM24zs1MFA)
+
