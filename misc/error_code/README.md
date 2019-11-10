@@ -48,6 +48,30 @@ See example in [flightservice](./flightservice/).
 - overload the `make_error_code()/make_error_condition()` function for your error code/condition enum
 - implement your error category(inherit from `std::error_category`) for your error code/condition enum(so that it's possible to print subsystem name and concrete message into log) 
 
+### Pros and Cons
+
+- Pros
+  - able to store error code itself in a `int`
+  - able to distinguish which subsystem the error comes from
+  - able to print concrete code value and message to log
+  - callers only need to handle errors they care (`std::error_condition`)
+    - in the [flightservice](./flightservice/) example, callers only want to distinguish whether error caused by `BadUserInput/InternalError/NoSolution` instead of handle many `FlightsErr/SeatsErr`.    
+
+- Cons 
+  - difficult to understand
+    - i.e. difficult to understand the whole story that why design it like this(maybe due to too complex requirements of standard library)
+  - difficult to use
+    - e.g. library/application developers have to do a lot of work to plugin new defined enum to `std::error_code`
+    - e.g. users have to understand the `std::error_code` design before use it
+  - values of `std::error_code` and `std::error_condition` are not the same
+    - generally when we do `a == b`, in intuitive `a` and `b` have same type and same value, but they're not. 
+    - it'll very confuse if we print both `std::error_code` and `std::error_condition` into log.
+
+### Remain questions
+
+- you can teach a new error condition to recognize existing error codes, but also you can teach a new error code to be recognized by existing error conditions    
+It's metioned in [Your own error condition](https://akrzemi1.wordpress.com/2017/08/12/your-own-error-condition/). Not quite understand it.    
+
 ## References
 - [Your own error code](https://akrzemi1.wordpress.com/2017/07/12/your-own-error-code/)
 - [Your own error condition](https://akrzemi1.wordpress.com/2017/08/12/your-own-error-condition/)
