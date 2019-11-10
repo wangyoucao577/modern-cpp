@@ -67,6 +67,20 @@ See example in [flightservice](./flightservice/).
     - generally when we do `a == b`, in intuitive `a` and `b` have same type and same value, but they're not. 
     - it'll very confuse if we print both `std::error_code` and `std::error_condition` into log.
 
+### Ideas for a good error code design in modern `C++`
+`std::error_code` is designed for `C++` standard library, which may have a lot of complex requirments to make it so complex like this.     
+When we need a error code design for our own library/application, there could be some ideas can help us to get a simpler but sufficient design.     
+
+- follow the convention that `0` always means `OK/Success`    
+- use `int` to store error code
+- each error code has a corrsponding string message for better logging
+- make error code consistent(a `int` code only has one meaning)
+- distinguish subsystem by use different code segment since we possible to pre-define the segments(e.g. `1000~1999` indicate A subsystem, `2000~2999` indicate B subsystem, etc.)
+- simplify error handling for caller
+  - provide methods for caller maybe a good way, e.g. [rocksdb/status.h](https://github.com/facebook/rocksdb/blob/master/include/rocksdb/status.h), [leveldb/status.h](https://github.com/google/leveldb/blob/master/include/leveldb/status.h)
+
+
+
 ### Remain questions
 
 - you can teach a new error condition to recognize existing error codes, but also you can teach a new error code to be recognized by existing error conditions    
@@ -79,4 +93,10 @@ It's metioned in [Your own error condition](https://akrzemi1.wordpress.com/2017/
 - [std::error_code](http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_code.html)
 - [std::error_category](http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_category.html)
 - [std::error_condition](http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_condition.html)
-
+- [System error support in C++0x - part 1](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html)
+- [System error support in C++0x - part 2](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-2.html)
+- [System error support in C++0x - part 3](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-3.html)
+- [System error support in C++0x - part 4](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-4.html)
+- [System error support in C++0x - part 5](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-5.html)
+- [rocksdb/status.h](https://github.com/facebook/rocksdb/blob/master/include/rocksdb/status.h)
+- [leveldb/status.h](https://github.com/google/leveldb/blob/master/include/leveldb/status.h)
