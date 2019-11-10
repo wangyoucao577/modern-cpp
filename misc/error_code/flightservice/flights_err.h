@@ -27,6 +27,9 @@ enum class FlightsErr {
 // http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_code/error_code.html
 std::error_code make_error_code(flightservice::FlightsErr e) noexcept;
 
+// for category compare in condition checking
+const std::error_category& get_flights_err_category() noexcept;
+
 }
 
 // specialize template for FlightsErr to indicate that

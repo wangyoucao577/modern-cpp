@@ -45,10 +45,8 @@ namespace { // anonymous namespace for category definition
             }
 
             // for FlightsErr
-            if (ec == FlightsErr::NonexistentLocations
-                || ec == FlightsErr::DatesInThePast
-                || ec == FlightsErr::InvertedDates) {
-                return true;
+            if (ec.category() == get_flights_err_category()) {
+                return ec.value() >= 10 && ec.value() < 20;
             }
 
             // for any other error_code enum:
@@ -56,19 +54,13 @@ namespace { // anonymous namespace for category definition
         }
         case FailureSource::InternalError: {
             // for SeatsErr
-            if (ec == SeatsErr::InvalidRequest
-                || ec == SeatsErr::CouldNotConnect
-                || ec == SeatsErr::InternalError
-                || ec == SeatsErr::NoResponse) {
-                return true;
+            if (ec.category() == get_seats_err_category()) {
+                return ec.value() >= 1 && ec.value() < 10;
             }
 
             // for FlightsErr
-            if (ec == FlightsErr::ProtocolViolation
-                || ec == FlightsErr::ResourceError
-                || ec == FlightsErr::ConnectionError
-                || ec == FlightsErr::Timeout) {
-                return true;
+            if (ec.category() == get_flights_err_category()) {
+                return ec.value() >= 30;
             }
 
             // for any other error_code enum:

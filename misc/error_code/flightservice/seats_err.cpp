@@ -40,6 +40,11 @@ namespace { // anonymous namespace for category definition
     const SeatsErrCategory the_seats_err_category {};
 }
 
+const std::error_category& get_seats_err_category() noexcept
+{
+    return the_seats_err_category;
+}
+
 std::error_code make_error_code(flightservice::SeatsErr e) noexcept
 {
     return { static_cast<int>(e), the_seats_err_category };

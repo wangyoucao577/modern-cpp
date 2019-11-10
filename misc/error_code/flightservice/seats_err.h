@@ -15,16 +15,18 @@ enum class SeatsErr {
     NoResponse, // did not respond in time
 
     // illogical request
-    NonexistentClass, // requested class does not exist
+    NonexistentClass = 10, // requested class does not exist
 
     // bad luck
-    NoSeatAvailable, // all seats booked
+    NoSeatAvailable = 20, // all seats booked
 };
 
 // overload for `std::make_error_code` for SeatsErr.
 // http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_code/error_code.html
 std::error_code make_error_code(flightservice::SeatsErr e) noexcept;
 
+// for category compare in condition checking
+const std::error_category& get_seats_err_category() noexcept;
 }
 
 // specialize template for SeatsErr to indicate that
