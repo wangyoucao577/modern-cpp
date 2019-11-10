@@ -25,7 +25,7 @@ namespace { // anonymous namespace for category definition
         case FlightsErr::InvertedDates:
             return "requested flight return date before departure date";
         case FlightsErr::NoFlightsFound:
-            return "no filight combination found";
+            return "no flight combination found";
         case FlightsErr::ProtocolViolation:
             return "received malformed request";
         case FlightsErr::ConnectionError:

@@ -7,10 +7,10 @@
 int main()
 {
     std::error_code flights_err = flightservice::FlightsErr::NoFlightsFound;
-    std::cout << flights_err << std::endl;
+    std::cout << flights_err << ", value: " << flights_err.value() << " msg: " << flights_err.message() << std::endl;
 
     std::error_code seats_err = flightservice::SeatsErr::NoSeatAvailable;
-    std::cout << seats_err << std::endl;
+    std::cout << seats_err << ", value: " << seats_err.value() << " msg: " << seats_err.message() << std::endl;
 
     return 0;
 }
