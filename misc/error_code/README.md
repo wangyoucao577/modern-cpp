@@ -67,7 +67,7 @@ See example in [flightservice](./flightservice/).
     - generally when we do `a == b`, in intuitive `a` and `b` have same type and same value, but they're not. 
     - it'll very confuse if we print both `std::error_code` and `std::error_condition` into log.
 
-### Ideas for a good error code design in modern `C++`
+### Ideas for design good error code
 `std::error_code` is designed for `C++` standard library, which may have a lot of complex requirments to make it so complex like this.     
 When we need a error code design for our own library/application, there could be some ideas can help us to get a simpler but sufficient design.     
 
