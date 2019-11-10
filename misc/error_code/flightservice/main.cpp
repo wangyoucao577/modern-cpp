@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-void check_failure_source(const std::error_code& ec)
+void handle_errors(const std::error_code& ec)
 {
     std::error_condition err_cond;
     if (ec == flightservice::FailureSource::BadUserInput) {
@@ -23,12 +23,12 @@ int main()
     std::error_code flights_err = flightservice::FlightsErr::NonexistentLocations;
     std::cout << flights_err << std::endl;
     std::cout << "  value: " << flights_err.value() << " msg: " << flights_err.message() << std::endl;
-    check_failure_source(flights_err);
+    handle_errors(flights_err);
 
     std::error_code seats_err = flightservice::SeatsErr::NoSeatAvailable;
     std::cout << seats_err << std::endl;
     std::cout << "  value: " << seats_err.value() << " msg: " << seats_err.message() << std::endl;
-    check_failure_source(seats_err);
+    handle_errors(seats_err);
 
     return 0;
 }
