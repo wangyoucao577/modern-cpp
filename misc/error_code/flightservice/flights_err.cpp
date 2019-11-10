@@ -40,13 +40,13 @@ namespace { // anonymous namespace for category definition
         return "(unrecognized error)";
     }
 
-    // global object for unify this category 
+    // global object for unify this category
     const FlightsErrCategory the_flights_err_category {};
 }
 
 std::error_code make_error_code(flightservice::FlightsErr e) noexcept
 {
-    return {static_cast<int>(e), the_flights_err_category};
+    return { static_cast<int>(e), the_flights_err_category };
 }
 
 }

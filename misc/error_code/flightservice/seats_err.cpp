@@ -18,7 +18,7 @@ namespace { // anonymous namespace for category definition
     std::string SeatsErrCategory::message(int ev) const
     {
         switch (static_cast<SeatsErr>(ev)) {
-        case SeatsErr::InvalidRequest: 
+        case SeatsErr::InvalidRequest:
             return "invalid request";
         case SeatsErr::CouldNotConnect:
             return "could not connect to server";
@@ -36,13 +36,13 @@ namespace { // anonymous namespace for category definition
         return "(unrecognized error)";
     }
 
-    // global object for unify this category 
+    // global object for unify this category
     const SeatsErrCategory the_seats_err_category {};
 }
 
 std::error_code make_error_code(flightservice::SeatsErr e) noexcept
 {
-    return {static_cast<int>(e), the_seats_err_category};
+    return { static_cast<int>(e), the_seats_err_category };
 }
 
 }
