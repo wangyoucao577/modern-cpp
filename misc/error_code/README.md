@@ -1,7 +1,18 @@
 # std::error_code
 Understanding standard library error code and try its usage, i.e. [std::error_code](http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_code.html), [std::error_category](http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_category.html), [std::error_condition](http://naipc.uchicago.edu/2014/ref/cppreference/en/cpp/error/error_condition.html).    
 
-## Test
+## Sample code
+It's a flight service comes from [Your own error code](https://akrzemi1.wordpress.com/2017/07/12/your-own-error-code/), see my implementation in [flightservice](./flightservice/).    
+
+- requirements for the flight service    
+  - It's used for looking for flight connections. You tell me where from and where to you want to go, and I will offer you concrete flights, and a price. 
+  - In order to be able to do this, the flight service calls other services in turn:
+    - one for finding the (short) sequence of flights that will take you to your destination,
+    - one for checking if there is still seats available on these flights in the requested class of service (economy class, business class),
+  - Each of these services can fail for a number of reasons.     
+  - See details in [Your own error code](https://akrzemi1.wordpress.com/2017/07/12/your-own-error-code/).    
+
+
 
 - coding style
 ```bash
