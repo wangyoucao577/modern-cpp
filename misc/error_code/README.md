@@ -67,7 +67,10 @@ See example in [flightservice](./flightservice/).
   - able to print concrete code value and message to log
   - callers only need to handle errors they care (`std::error_condition`)
     - in the [flightservice](./flightservice/) example, callers only want to distinguish whether error caused by `BadUserInput/InternalError/NoSolution` instead of handle many `FlightsErr/SeatsErr`.    
-
+  - able to use `==/!=` to compare `std::error_code` and `enum xxx` directly
+  - able to construct `std::error_code` by `enum` values (e.g. `std::error_code ec = XXXEnumType::Value1`)
+  - `std::error_code` only contains two members(a `int` code and a `const std::category*`), lightweight
+  
 - Cons 
   - difficult to understand
     - i.e. difficult to understand the whole story that why design it like this(maybe due to too complex requirements of standard library)
