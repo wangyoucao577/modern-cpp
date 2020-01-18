@@ -62,6 +62,13 @@ constructor takes initilaizer_list
 constructor takes initilaizer_list
 ```
 
+- vector_sample.cc
+```bash
+$ clang++ -std=c++14 vector_sample.cc && ./a.out
+v1 20 20 20 20 20 20 20 20 20 20
+v2 10 20
+```
+
 ## Notes 
 
 ### 4 syntaxs to initialize values/objects
