@@ -46,5 +46,5 @@ $ # TODO:
 ```
 
 ## References
-
+- [Stackoverflow - C++11 lambda implementation and memory model](https://stackoverflow.com/questions/12202656/c11-lambda-implementation-and-memory-model)
 
