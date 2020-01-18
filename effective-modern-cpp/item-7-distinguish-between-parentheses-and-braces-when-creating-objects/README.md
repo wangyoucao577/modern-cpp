@@ -4,7 +4,7 @@
 
 - most_vexing_parse.cc
 ```bash
-clang++ -std=c++14 most_vexing_parse.cc
+$ clang++ -std=c++14 most_vexing_parse.cc
 most_vexing_parse.cc:22:25: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
   TimeKeeper time_keeper(Timer());
                         ^~~~~~~~~
@@ -20,7 +20,7 @@ most_vexing_parse.cc:23:21: error: member reference base type 'TimeKeeper (Timer
 
 - prohibit_narrowing_conversion.cc
 ```bash
-clang++ -std=c++14 prohibit_narrowing_conversion.cc
+$ clang++ -std=c++14 prohibit_narrowing_conversion.cc
 prohibit_narrowing_conversion.cc:13:14: error: type 'double' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
     int sum3{x + y + z};  // compile error
              ^~~~~~~~~
@@ -46,6 +46,21 @@ constructor 2
 constructor 3
 ```
 
+- empty_brace.cc
+```bash
+$ clang++ -std=c++14 empty_brace.cc && ./a.out
+empty_brace.cc:17:14: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    Widget w1();    // most vexing parse! w1 will be interpreted as a function declare
+             ^~
+empty_brace.cc:17:14: note: remove parentheses to declare a variable
+    Widget w1();    // most vexing parse! w1 will be interpreted as a function declare
+             ^~
+1 warning generated.
+default constructor
+default constructor
+constructor takes initilaizer_list
+constructor takes initilaizer_list
+```
 
 ## Notes 
 
