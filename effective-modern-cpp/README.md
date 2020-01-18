@@ -12,7 +12,7 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 6. Use the explicity typed initializer idiom when auto deduces undesired types](./item-6-use-the-explicitly-typed-initializer-idiom-when-auto-deduces-undesired-types/)
 
 ## Chapter 3. Moving to Modern C++
-
+- [Item 7. Distinguish between () and {} when creating objects](./item-7-distinguish-between-parentheses-and-braces-when-creating-objects/)
 
 ## References
 - [Scott Meyers's homepage](https://www.aristeia.com/)
