@@ -18,6 +18,19 @@ most_vexing_parse.cc:23:21: error: member reference base type 'TimeKeeper (Timer
 1 warning and 1 error generated.
 ```
 
+- prohibit_narrowing_conversion.cc
+```bash
+clang++ -std=c++14 prohibit_narrowing_conversion.cc
+prohibit_narrowing_conversion.cc:13:14: error: type 'double' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
+    int sum3{x + y + z};  // compile error
+             ^~~~~~~~~
+prohibit_narrowing_conversion.cc:13:14: note: insert an explicit cast to silence this issue
+    int sum3{x + y + z};  // compile error
+             ^~~~~~~~~
+             static_cast<int>( )
+1 error generated.
+```
+
 ## Notes 
 
 ### 4 syntaxs to initialize values/objects
