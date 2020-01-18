@@ -31,6 +31,22 @@ prohibit_narrowing_conversion.cc:13:14: note: insert an explicit cast to silence
 1 error generated.
 ```
 
+- stronglly_prefer_initializer_list_constructor.cc
+```bash
+$ clang++ -std=c++14 stronglly_prefer_initializer_list_constructor.cc && ./a.out
+constructor 1
+constructor 1
+constructor 2
+constructor 2
+$
+$ clang++ -std=c++14 -DSTD_INITIALIZER_LIST_CONSTRUCTOR stronglly_prefer_initializer_list_constructor.cc && ./a.out
+constructor 1
+constructor 3
+constructor 2
+constructor 3
+```
+
+
 ## Notes 
 
 ### 4 syntaxs to initialize values/objects
