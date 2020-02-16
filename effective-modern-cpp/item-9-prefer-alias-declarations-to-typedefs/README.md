@@ -93,3 +93,4 @@ public:
 
 ## References
 - [Standard library header <type_traits>](https://en.cppreference.com/w/cpp/header/type_traits)
+- [(Chinese) Understanding C++11 - using_alias](https://github.com/wangyoucao577/modern-cpp/tree/master/understanding-cpp11#using_alias)

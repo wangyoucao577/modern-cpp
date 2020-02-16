@@ -69,3 +69,4 @@ Refer to [Item 1. Understand template type deductions](../item-1-understand-temp
 
 ## References
 - [std::nullptr_t](https://en.cppreference.com/w/cpp/types/nullptr_t)
+- [(Chinese) Understanding C++11 - nullptr](https://github.com/wangyoucao577/modern-cpp/tree/master/understanding-cpp11#nullptr)
