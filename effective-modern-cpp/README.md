@@ -15,6 +15,7 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 7. Distinguish between () and {} when creating objects](./item-7-distinguish-between-parentheses-and-braces-when-creating-objects/)
 - [Item 8. Prefer `nullptr` to `0` and `NULL`](./item-8-perfer-nullptr-to-0-and-null/)
 - [Item 9. Prefer alias declarations to typedefs](./item-9-prefer-alias-declarations-to-typedefs/)
+- [Item 10. Prefer scoped enums to unscoped enums](./item-10-prefer-scoped-enums-to-unscoped-enums/)
 
 ## References
 - [Scott Meyers's homepage](https://www.aristeia.com/)
