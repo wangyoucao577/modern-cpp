@@ -13,6 +13,7 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 
 ## Chapter 3. Moving to Modern C++
 - [Item 7. Distinguish between () and {} when creating objects](./item-7-distinguish-between-parentheses-and-braces-when-creating-objects/)
+- [Item 8. Prefer `nullptr` to `0` and `NULL`](./item-8-perfer-nullptr-to-0-and-null/)
 
 ## References
 - [Scott Meyers's homepage](https://www.aristeia.com/)
