@@ -25,7 +25,7 @@ In particular, alias declarations maybe templatized (in which case they're calle
 ```c++
 // typedef
 template<typename T>
-struct MyAllocList {
+struct MyAllocList {    // must define a struct template
     typedef std::list<T, MyAlloc<T>> type;
 };
 
@@ -43,7 +43,7 @@ public:
 
 - sample by **alias declarations/templates**    
 ```c++
-// alias declaration, a.k.a alias template
+// alias declaration, aka alias template
 template<typename T>
 using MyAllocList = std::list<T, MyAlloc<T>>;
 
@@ -92,3 +92,4 @@ public:
 
 
 ## References
+- [Standard library header <type_traits>](https://en.cppreference.com/w/cpp/header/type_traits)
