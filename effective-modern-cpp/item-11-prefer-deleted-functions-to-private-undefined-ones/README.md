@@ -127,5 +127,76 @@ void processPointer<const char>(const char*) = delete;
 
 ## Notes
 
+### Preventing clients calling some `C++` automatically generated functions
+The problem arises when you want to prevent clients calling some `C++` automatically generated functions(i.e. default constructor, copy constructor, etc.).      
+
+- `C++98` approach: declare them `private` and not define them
+  - declaring these functions `private` prevents clients from calling them
+  - not define them so that if code that still has access to them(i.e. member functions or `friend`s of class) uses them, linking will fail due to missing function definitions.   
+
+```c++
+    template<class charT, class traits = char_traits<charT> >
+    class basic_ios : public ios_base { 
+    public:
+        // ... 
+    
+    private:
+        basic_ios(const basic_ios&);            // not defined
+        basic_ios& operator=(const basic_ios&); // not defined
+    }
+```
+
+- `C++11` approach: use `= delete`
+  - deleted functions may not be used in any way, so **even code that's in member and `friend` functions will fail to compile** if it tries to copy `basic_ios` objects. 
+    - that's an improvement over the `C++98` behavior, where such improper usage wouldn't be diagnosed until link-time.    
+  - by convention, deleted functions are declared `public`, not `private`.    
+    - because making the new functions `public` will generally result in better error messages.    
+      - when client codes tries to use a member function, `C++` checks accessibility before deleted status. When client codes tries to use a deleted `private` function, some compilers complain only about the function being `private`, even though the function's accessibility doesn't really affect whether it can be used.      
+
+```c++
+    template<class charT, class traits = char_traits<charT> >
+    class basic_ios : public ios_base { 
+    public:
+        basic_ios(const basic_ios&) = delete;            
+        basic_ios& operator=(const basic_ios&) = delete; 
+        // ... 
+    }
+```
+
+### More advantages of `C++11` deleted functions
+`C++98` approach doesn't support these advantages.      
+
+- any function may be deleted, while only member functions maybe `private`    
+refer to [delete_normal_functions.cc](./delete_normal_functions.cc) in [Test Codes](#test-codes).    
+
+- deleted functions can prevent(`private` member functions can't) use of template instantiations that should be disabled     
+refer to [delete_template_instantiations.cc](./delete_template_instantiations.cc) in [Test Codes](#test-codes).    
+
+- possible to delete function template inside a class
+  - `C++98`'s approach can not do it because template specializations much be written at namespace scope, not class scope.    
+
+```c++
+    class Widget {
+    public: 
+    // ...
+
+    template<typename T>
+    void processPointer(T* ptr){ 
+        // ... 
+    }
+
+    private:
+    template<>
+    void processPointer<void>(void*);    // C++98 approach, error! 
+
+    };
+
+    template<>
+    void Widget::processPointer<void>(void*) = delete;  // C++11 approach, OK!
+```
+
+### Conclusion
+The truth is that the `C++98` practice of declaring functions `private` and not defining them was really an attempt to achieve what `C++11`'s deleted functions actually accomplish. As an emulation, the `C++98` approach is not as good as the real thing. It doesn't work outside classes, it doesn't always work inside classes, and when it does work, it may not work until link-time. So stick to deleted functions.     
+
 ## References
 - [(Chinese) Understanding C++11 - default_delete_control](https://github.com/wangyoucao577/modern-cpp/tree/master/understanding-cpp11#default_delete_control)
