@@ -31,7 +31,9 @@ std::__1::__wrap_iter<int*>
   - Even the semantic sledgehammer known as `reinterpret_cast` can't do the job.     
   - It's true in both `C++98` and `C++11`.    
   - `const_iterator`s simply don't convert to `iterator`s, no matter how much it might seem like they should.    
-  - From the sample in [Test Codes](#test-codes), type of `std::vector<int>::const_iterator` is `std::__1::__wrap_iter<int const*>`, in contrast type of `std::vector<int>::iterator` is `std::__1::__wrap_iter<int*>`.    
+  - From the sample in [Test Codes](#test-codes),    
+    - type of `std::vector<int>::const_iterator`: `std::__1::__wrap_iter<int const*>`,     
+    - type of `std::vector<int>::iterator`: `std::__1::__wrap_iter<int*>`.    
     - The differences between them are not whether themselves are `const`, but whether their base type are `const`.    
 
 - An oversight during standardization:     
