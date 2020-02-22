@@ -14,15 +14,16 @@ private:
     std::function<T> f_;
 };
 
-auto str_to_integer(const std::string& s) {
-    std::cout << "begin convert \"" << s << "\" to integer." << std::endl;
+auto handle(const std::string& s) {
+    std::cout << "start handle: " << s << std::endl;
     ScopeGuard<void()> local_guard([&](){
-        std::cout << "end   convert \"" << s << "\" to integer (by scope guard)." << std::endl;
+            std::cout << "finished handle: " << s << " (by scope guard)." << std::endl;
     });
 
+    //NOTE: assume there's heavy handling here, e.g. many functions call, complex calculation that costs much time, etc.
     auto ul = std::stoul(s);    // will throw exception if not convertible
 
-    std::cout << "end   convert \"" << s << "\" to integer." << std::endl;
+    std::cout << "finished handle: " << s << std::endl;
     return ul;
 }
 
@@ -35,8 +36,8 @@ int main(){
         std::cin >> s;
 
         try{
-            auto v = str_to_integer(s);
-            std::cout << "got integer: " << v << std::endl;
+            auto v = handle(s);
+            std::cout << "result: " << v << std::endl;
         }catch (std::exception& e){
             std::cout << e.what() << std::endl;
         }
