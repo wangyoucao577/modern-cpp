@@ -1,23 +1,28 @@
 
 #include <iostream>
 
-class Guard{
+template<typename T>
+class ScopeGuard{
 public:
-    Guard() {
-        std::cout << "Guard start" << std::endl;
+    ScopeGuard(std::function<T> f) : f_(std::move(f)) {}
+    ~ScopeGuard() {
+        if (f_){
+            f_();
+        }
     }
-    ~Guard() {
-        std::cout << "Guard end" << std::endl;
-    }
+private:
+    std::function<T> f_;
 };
 
 auto str_to_integer(const std::string& s) {
-    std::cout << "enter \"" << __PRETTY_FUNCTION__ << "\"" << std::endl;
-    Guard g;
+    std::cout << "begin convert \"" << s << "\" to integer." << std::endl;
+    ScopeGuard<void()> local_guard([&](){
+        std::cout << "end   convert \"" << s << "\" to integer (by scope guard)." << std::endl;
+    });
 
     auto ul = std::stoul(s);    // will throw exception if not convertible
 
-    std::cout << "exit  \"" << __PRETTY_FUNCTION__ << "\""  << std::endl;
+    std::cout << "end   convert \"" << s << "\" to integer." << std::endl;
     return ul;
 }
 
