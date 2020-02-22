@@ -49,6 +49,7 @@ set(TEST_STD_SHARED_PTR_TARGET test_std_shared_ptr)
 add_executable (${TEST_STD_SHARED_PTR_TARGET} ${DIR_SRCS})
 
 if (Boost_FOUND)
+include_directories(${Boost_INCLUDE_DIRS})
 set(TEST_BOOST_SHARED_PTR_TARGET test_boost_shared_ptr)
 add_executable (${TEST_BOOST_SHARED_PTR_TARGET} ${DIR_SRCS})
 #add_definitions(-DUSE_BOOST_SHARED_PTR)
