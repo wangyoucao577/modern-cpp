@@ -18,7 +18,7 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 10. Prefer scoped enums to unscoped enums](./item-10-prefer-scoped-enums-to-unscoped-enums/)
 - [Item 11. Prefer deleted functions to private undefined ones](./item-11-prefer-deleted-functions-to-private-undefined-ones/)
 - [Item 12. Declare overriding functions override](./item-12-declare-overriding-functions-override/)
-
+- [Item 13. Prefer const_iterators to iterators](./item-13-prefer-const_iterators-to-iterators/)
 
 ## References
 - [Scott Meyers's homepage](https://www.aristeia.com/)
