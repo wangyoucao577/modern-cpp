@@ -4,10 +4,10 @@
 
 ## Notes
 
-- During work on `C++11`, a consensus emerged that **the truly meaningful information about a function's exception-emitting behavior was whether it had any**.     
-  - I.e. black or white, either a function might emit an exception or it guaranteed that it wouldn't.    
-  - This maybe-or-never dichotomy forms the basis of `C++11`'s exception specifications, which essentially replace `C++98`'s. (`C++98`-style exception specifications, `throw()`, remain valid, but they're deprecated.)    
-  - In `C++11`, unconditional `noexcept` is for functions that guarantee they won't emit exceptions.         
+During work on `C++11`, a consensus emerged that **the truly meaningful information about a function's exception-emitting behavior was whether it had any**.     
+- I.e. **black or white, either a function might emit an exception or it guaranteed that it wouldn't**.    
+- This maybe-or-never dichotomy forms the basis of `C++11`'s exception specifications, which essentially replace `C++98`'s. (`C++98`-style exception specifications, `throw()`, remain valid, but they're deprecated.)    
+- In `C++11`, unconditional `noexcept` is for functions that guarantee they won't emit exceptions.         
 
 ### Advantages 
 - Whether a function should be so declared with `noexcept` is a matter of interface design.    
@@ -29,7 +29,7 @@
     int f(int x) noexcept;  // no exceptions from f: C++11 style. most optimizable
 ```
 
-- Declare `noexcept` possibe to improve performance     
+- Declare `noexcept` possible to improve performance     
   - In `C++11`, the copy operations inside `std::vector::push_back` can be silently replaced with moves unless it's known that the move operations won't emit exceptions.     
     - The copy operations inside `std::vector::push_back` occurs when capacity is insufficient for a new element.     
     - In that case, having moves replace copies would be safe, and the only side affect would be improved performance.     
@@ -63,7 +63,7 @@
   - But if a straightforward function implementation might yield exceptions(e.g., by invoking a function that might throw), the hoops you'll jump through to hide that from callers(e.g., catching all exceptions and replacing them with status codes or speical return values) will not only complicate your function's implementation, it will typically complicate code at call sites, too. That'd be poor software engineering.       
 
 - For some functions, being `noexcept` is so important, they're that way by default.     
-  - In `C++11`, by default, all memory deallocation functions and all destructors - both user-defined and compiler-generated - are implicitly `noexcept`.    
+  - In `C++11`, by default, **all memory deallocation functions and all destructors - both user-defined and compiler-generated - are implicitly `noexcept`**.    
     - (There's thus no need to declare them `noexcept`. Declaring them `noexcept` explicity doesn't hurt anything, it's just unconventional.)     
   - The only time a destructor is not implicity `noexcept` is when a data member of the class(including inherited members and those contained inside other data members) is of a type that expressly states that its destructor may emit exceptions(e.g., declares it `noexcept(false)`).    
     - Such destructors are uncommon.     
