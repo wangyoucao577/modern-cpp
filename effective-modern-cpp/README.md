@@ -19,6 +19,7 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 11. Prefer deleted functions to private undefined ones](./item-11-prefer-deleted-functions-to-private-undefined-ones/)
 - [Item 12. Declare overriding functions override](./item-12-declare-overriding-functions-override/)
 - [Item 13. Prefer const_iterators to iterators](./item-13-prefer-const_iterators-to-iterators/)
+- [Item 14. Declare functions noexcept if they won't emit exceptions](./item-14-declare-functions-noexcept-if-they-wont-emit-exceptions/)
 
 ## References
 - [Scott Meyers's homepage](https://www.aristeia.com/)
