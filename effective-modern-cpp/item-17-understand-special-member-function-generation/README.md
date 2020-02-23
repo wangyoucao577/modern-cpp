@@ -88,4 +88,5 @@ public:
 
 ## References
 - [(Chinese) Understanding C++11 - default_delete_control](https://github.com/wangyoucao577/modern-cpp/tree/master/understanding-cpp11#default_delete_control)
-
+- [Rule of three (C++ programming)](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming))
+- [Special member functions](https://en.wikipedia.org/wiki/Special_member_functions)
