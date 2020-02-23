@@ -21,6 +21,7 @@ My learning notes and practice codes for book [Effective Modern C++ (by Scott Me
 - [Item 13. Prefer const_iterators to iterators](./item-13-prefer-const_iterators-to-iterators/)
 - [Item 14. Declare functions noexcept if they won't emit exceptions](./item-14-declare-functions-noexcept-if-they-wont-emit-exceptions/)
 - [Item 15. User constexpr whenever possible](./item-15-use-constexpr-whenever-possible/)
+- [Item 16. Make const member functions thread safe](./item-16-make-const-member-functions-thread-safe/)
 
 ## References
 - [Scott Meyers's homepage](https://www.aristeia.com/)
