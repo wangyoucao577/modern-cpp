@@ -50,7 +50,7 @@ Conceptually, `constexpr` indicates a value that's not only constant, it's known
 - All `constexpr` objects are `const`, but not all `const` objects are `constexpr`.     
 
 ### `constexpr` functions
-`constexpr` functions produce compile-time constants when they're called with compile-time constants. If they're called with values not known until runtime, they produce runtime values.     
+`constexpr` functions **produce compile-time constants when they're called with compile-time constants. If they're called with values not known until runtime, they produce runtime values**.     
 - The right way to view it:     
   - `constexpr` functions can be used in context that demand compile-time constants.     
     - If the values of the arguments you pass to a `constexpr` function in such a context are known during compilation, the result will be computed during compilation.      
@@ -108,7 +108,7 @@ Conceptually, `constexpr` indicates a value that's not only constant, it's known
 
 - Both `constexpr` objects and `constexpr` functions can be employed in a wider range of contexts than non-`constexpr` objects and functions.    
 - By using `constexpr` whenever possible, you maximize the range of situations in which your objects and functions may be used.    
-- By `constexpr`, the traditionally fairly strict line between work done during compilation and work done at runtime begins to blur.    
+- By using `constexpr`, the traditionally fairly strict line between work done during compilation and work done at runtime begins to blur:      
   - Some computations traditionally done at runtime can migrate to compile time.    
   - The more code taking part in the migration, the faster your software will run.(Compilation may take longer, however.)    
 - It's important to note that `constexpr` is part of an object's or function's interface.     
