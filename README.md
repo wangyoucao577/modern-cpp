@@ -17,6 +17,7 @@ My learning notes and practice codes for Modern `C++`(i.e. `C++11/14/17/20/...`)
 - [When ScopeGuard encounter exception](./misc/when-guard-encounter-expection/)
 
 ## References
+- [Awesome Modern C++](https://awesomecpp.com/)
 - [Bjarne Stroustrup's homepage](http://www.stroustrup.com)
 - [cprogramming.com](https://www.cprogramming.com/)
 - [Scott Meyers's homepage](https://www.aristeia.com/)
