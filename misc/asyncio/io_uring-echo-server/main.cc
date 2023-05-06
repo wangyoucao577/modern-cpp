@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   tcpServer.Submit();
 
   std::thread t([&tcpServer] {
-    tcpServer.EchoLoop(); // until quit or error
+    tcpServer.EchoLoopForever(); // until quit or error
   });
 
   while (true) {
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  tcpServer.Stop();
+  tcpServer.QuitEchoLoop();
   t.join();
   return 0;
 }

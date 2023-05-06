@@ -52,7 +52,9 @@ public:
   }
 
   int StartListen(uint16_t port) noexcept;
-  void Stop() noexcept;
+
+  void EchoLoopForever() noexcept;
+  void QuitEchoLoop() noexcept;
 
 public:
   // io_uring
@@ -61,8 +63,6 @@ public:
   void AddReadRequest(int sockfd, int max_read_len) noexcept;
   void AddWriteRequest(int sockfd, unsigned char *buff, int len) noexcept;
   int Submit() noexcept;
-
-  void EchoLoop() noexcept;
 
 private:
   struct io_uring ring_;

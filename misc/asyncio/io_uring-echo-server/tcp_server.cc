@@ -37,7 +37,7 @@ int TcpServer::StartListen(uint16_t port) noexcept {
   return ret;
 }
 
-void TcpServer::Stop() noexcept { write(pipe_fds_[1], "1", 1); }
+void TcpServer::QuitEchoLoop() noexcept { write(pipe_fds_[1], "1", 1); }
 
 void TcpServer::AddWaitForCloseRequest() noexcept {
   struct io_uring_sqe *sqe = io_uring_get_sqe(&ring_);
@@ -84,7 +84,7 @@ void TcpServer::AddWriteRequest(int sockfd, unsigned char *buff, int len) noexce
 
 int TcpServer::Submit() noexcept { return io_uring_submit(&ring_); }
 
-void TcpServer::EchoLoop() noexcept {
+void TcpServer::EchoLoopForever() noexcept {
   std::cout << "echo server started" << std::endl;
 
   while (true) {
