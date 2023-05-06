@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <iostream>
 #include <liburing.h>
+#include <string.h>
 #include <utility>
 
 int TcpServer::StartListen(uint16_t port) noexcept {
@@ -12,7 +13,7 @@ int TcpServer::StartListen(uint16_t port) noexcept {
   int reuse = 1;
   ret = setsockopt(listen_sock_, SOL_SOCKET, SO_REUSEADDR, (char *)&reuse, sizeof(int));
   if (ret != 0) {
-    std::cout << "setsockopt SO_REUSEADDR failed, err " << errno << std::endl;
+    std::cout << "setsockopt SO_REUSEADDR failed, err " << strerror(errno) << std::endl;
     return ret;
   }
 
@@ -22,13 +23,13 @@ int TcpServer::StartListen(uint16_t port) noexcept {
   listen_addr.sin_addr.s_addr = htonl(INADDR_ANY);
   ret = bind(listen_sock_, (struct sockaddr *)&listen_addr, sizeof(listen_addr));
   if (ret != 0) {
-    std::cout << "bind failed, err " << errno << std::endl;
+    std::cout << "bind failed, port " << port << " err " << strerror(errno) << std::endl;
     return ret;
   }
 
   ret = listen(listen_sock_, 100);
   if (ret != 0) {
-    std::cout << "listen failed, err " << errno << std::endl;
+    std::cout << "listen failed, err " << strerror(errno) << std::endl;
     return ret;
   }
   std::cout << "tcp listening on :" << port << std::endl;

@@ -12,7 +12,10 @@ int main(int argc, char *argv[]) {
   auto port = std::strtol(argv[1], NULL, 10);
 
   auto tcpServer = TcpServer();
-  tcpServer.StartListen(static_cast<uint16_t>(port));
+  auto ret = tcpServer.StartListen(static_cast<uint16_t>(port));
+  if (ret != 0) {
+    return -1;
+  }
 
   // initialize for first accept
   tcpServer.AddWaitForCloseRequest();
