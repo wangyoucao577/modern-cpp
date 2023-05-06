@@ -2,39 +2,37 @@
 #include "tcp_server.h"
 #include <cassert>
 #include <iostream>
+#include <thread>
 
-int main() {
+int main(int argc, char *argv[]) {
+  if (argc < 2) {
+    std::cout << "Usage: ./echo_server [port]" << std::endl;
+    return -1;
+  }
+  auto port = std::strtol(argv[1], NULL, 10);
 
-  auto tcpServer = TcpServer(8888);
-  tcpServer.StartListen();
+  auto tcpServer = TcpServer();
+  tcpServer.StartListen(static_cast<uint16_t>(port));
+
+  // initialize for first accept
+  tcpServer.AddWaitForCloseRequest();
+  tcpServer.AddAcceptRequest();
+  tcpServer.Submit();
+
+  std::thread t([&tcpServer] {
+    tcpServer.EchoLoop(); // until quit or error
+  });
 
   while (true) {
-    struct io_uring_cqe *cqe{nullptr};
-    ret = io_uring_wait_cqe(&ring, &cqe);
-    if (ret != 0) {
-      std::cout << "io_uring_wait_cqe failed, err " << ret << std::endl;
+    std::cout << "press 'quit' to exit..." << std::endl;
+    std::string s;
+    std::cin >> s;
+    if (s == "quit") {
       break;
     }
-
-    auto req = static_cast<IORequest *>(io_uring_cqe_get_data(cqe));
-
-    if (cqe->res < 0) {
-      // handle error
-      std::cout << "cqe result err " << cqe->res << std::endl;
-      if (req) {
-        delete req;
-      }
-      continue;
-    }
-
-    // handle response
-
-    if (req) {
-      delete req;
-    }
-
-    io_uring_cqe_seen(&ring, cqe);
   }
 
-  return -1;
+  tcpServer.Stop();
+  t.join();
+  return 0;
 }
