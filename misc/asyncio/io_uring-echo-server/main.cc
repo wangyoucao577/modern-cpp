@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    std::cout << "Usage: ./echo_server [port]" << std::endl;
+    std::cout << "Usage: " << argv[0] << " [port]" << std::endl;
     return -1;
   }
   auto port = std::strtol(argv[1], NULL, 10);
