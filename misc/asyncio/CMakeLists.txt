@@ -9,5 +9,5 @@ set(CMAKE_CXX_STANDARD 20)
 find_package(PkgConfig REQUIRED)
 
 
-add_subdirectory(io_uring_echo_server)
+add_subdirectory(io_uring-echo-server)
 
